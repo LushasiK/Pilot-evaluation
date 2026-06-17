@@ -1,0 +1,4 @@
+period,total_patients,high_risk_patients,non_high_risk,percent_high_risk
+After,209,90,119,43.1
+Before,164,65,99,39.6
+During,254,90,164,35.4

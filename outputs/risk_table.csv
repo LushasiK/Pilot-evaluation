@@ -1,0 +1,7 @@
+DISTRICT,period,bite_patients,high_risk_bites,pct_high_risk,bite_incidence_100k,high_risk_incidence_100k
+Arusha City Council,Before,113,27,23.9,62.5,14.9
+Arusha City Council,During,182,29,15.9,100.7,16
+Arusha City Council,After,168,53,31.5,92.9,29.3
+Kilosa,Before,51,38,74.5,30.4,22.7
+Kilosa,During,72,61,84.7,43,36.4
+Kilosa,After,41,37,90.2,24.5,22.1

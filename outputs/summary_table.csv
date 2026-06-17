@@ -1,0 +1,7 @@
+DISTRICT,period,total_bites,first_dose,second_dose,third_dose,fourth_dose,completed,completion_rate,positive_clinical
+Arusha City Council,After,275,168,68,38,1,39,0.23214285714285715,0
+Arusha City Council,Before,194,113,47,29,5,34,0.3008849557522124,0
+Arusha City Council,During,322,182,84,50,6,56,0.3076923076923077,0
+Kilosa,After,60,41,15,4,0,4,0.0975609756097561,0
+Kilosa,Before,74,51,20,1,0,1,0.0196078431372549,2
+Kilosa,During,130,72,42,16,0,16,0.2222222222222222,0
