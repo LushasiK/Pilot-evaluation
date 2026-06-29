@@ -49,13 +49,10 @@ patients_filtered <- patients_p %>%
 
 patients_filtered$FACILITY
 
-
-
 # Summary table
 summary_table <- patients_filtered %>%
   group_by(DISTRICT, period) %>%
-  summarise(
-    total_bites = n(),
+  summarise(total_bites = n(),
     first_dose  = sum(VISIT_STATUS == "first"),
     second_dose = sum(VISIT_STATUS == "second"),
     third_dose  = sum(VISIT_STATUS == "third"),
@@ -75,8 +72,6 @@ write_csv(summary_table, "outputs/summary_table.csv")
 patients_filtered %>%
   count(VISIT_STATUS, period)
 
-
-#-----------------------------------
 # Percentage change in reporting of bites during and after the pilot; 
 # Reshape data to wide format (one row per district)
 bite_change <- summary_table %>%
@@ -131,10 +126,7 @@ fig_completion <- ggplot(summary_table_prop,
     plot.background = element_rect(fill = "white", colour = NA),
     panel.background = element_rect(fill = "white", colour = NA)
   )
-ggsave("Figures/figure_completion_rates.pdf",
-       plot = fig_completion,
-       width = 8, height = 6,
-       bg = "white")
+ggsave(here("Figures", "figure_completion_rates.pdf"),plot = fig_completion,width = 8, height = 6, bg = "white")
 
 
 # Total bite cases, reported bite cases before, during and after between the study settings
@@ -150,7 +142,7 @@ fig_cases <- ggplot(summary_table_prop,
     panel.background = element_rect(fill = "white", colour = NA)
   )
 
-ggsave("Figures/figure_bite_cases.pdf", plot = fig_cases, width = 8, height = 6,bg = "white")
+ggsave(here("Figures","figure_bite_cases.pdf"), plot = fig_cases, width = 8, height = 6,bg = "white")
 
 
 #----------------------------------------------
@@ -204,7 +196,7 @@ fig <- ggplot(cascade_data,
     #panel.grid.minor = element_blank(),
     #panel.grid.major.y = element_line(color = "grey80")
   )
-ggsave("Figures/figure_cascade.pdf", plot = fig, width = 8, height = 6)
+ggsave(here("Figures","figure_cascade.pdf"), plot = fig, width = 8, height = 6)
 
 
 ##---------------------
@@ -290,7 +282,7 @@ high_risk_by_district <- high_risk_cases %>%
 
 high_risk_by_district
 
-#---------------------------------------------------------------------------
+
 # Bite patient presentations and rabies exposure risk per 100,000 population 
 # Before, During, and After  the pilot
 #---------------------------------------------------------------------------
@@ -345,7 +337,6 @@ risk_table <- patients_analysis %>%
 risk_table
 
 write_csv(risk_table, "outputs/risk_table.csv")
-
 
 
 # calculate the change in high-risk exposure incidence during the pilot
@@ -486,10 +477,7 @@ summary(interaction_model)
 anova(risk_model,interaction_model,test = "Chisq")
 
 
-
-##=======================================
-##-----------------------
-
+#=======================================
 # Monthly bite trends
 monthly_bites <- patients %>%
   filter(
@@ -506,6 +494,5 @@ ggplot(monthly_bites,aes(x = month,y = n,color = DISTRICT)) +
   theme_classic() +
   labs(x = "",y = "First-dose bite patients")
 
-##---------------
 
 
